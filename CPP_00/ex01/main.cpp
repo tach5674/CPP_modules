@@ -1,0 +1,50 @@
+#include <iostream>
+#include <string>
+#include "PhoneBook.hpp"
+#include "Contact.hpp"
+
+int main()
+{
+    std::string input;
+    std::string first_name, last_name, nickname, phone_number, darkest_secret;
+    PhoneBook phone_book;
+    while (true)
+    {
+        std::cout << "Enter a command (ADD, SEARCH, EXIT): ";
+        std::getline(std::cin, input);
+        if (input == "ADD")
+        {
+            std::getline(std::cin, first_name);
+            std::getline(std::cin, last_name);
+            std::getline(std::cin, nickname);
+            std::getline(std::cin, phone_number);
+            std::getline(std::cin, darkest_secret);
+            if (first_name.empty() ||
+                last_name.empty() ||
+                nickname.empty() ||
+                phone_number.empty() ||
+                darkest_secret.empty())
+            {
+                std::cout << "All fields are required!" << std::endl;
+                continue;
+            }
+            Contact newContact(first_name,
+                               last_name,
+                               nickname,
+                               phone_number,
+                               darkest_secret);
+            phone_book.add_contact(newContact);
+        }
+        else if (input == "SEARCH")
+        {
+            int index;
+            phone_book.display_contacts();
+            std::cout << "Enter index to view details: ";
+            std::cin >> index;
+            phone_book.display(index);
+        }
+        else if (input == "EXIT")
+            break;
+    }
+    return 0;
+}

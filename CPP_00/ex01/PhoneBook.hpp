@@ -24,7 +24,7 @@ public:
 
     void add_contact(const Contact &newContact);
     
-    void display_contacts() const;
+    bool display_contacts() const;
 
     void display(int index) const;
 };

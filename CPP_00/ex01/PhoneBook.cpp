@@ -31,6 +31,20 @@ void PhoneBook::add_contact(const Contact &newContact)
     contact_count++;
 }
 
+bool PhoneBook::display_contacts() const
+{
+    if (contact_count == 0)
+    {
+        std::cout << "No contacts available." << std::endl;
+        return false;
+    }
+    for (int i = 0; i < (contact_count < 8 ? contact_count : 8); ++i)
+    {
+        contacts[i].preview(i);
+    }
+    return true;
+}
+
 void PhoneBook::display(int index) const
 {
     if (index < 0 || index >= 8 || index >= contact_count % 8)
@@ -39,12 +53,4 @@ void PhoneBook::display(int index) const
         return;
     }
     contacts[index].display();
-}
-
-void PhoneBook::display_contacts() const
-{
-    for (int i = 0; i < (contact_count < 8 ? contact_count : 8); ++i)
-    {
-        contacts[i].preview(i);
-    }
 }

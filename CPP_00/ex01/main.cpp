@@ -1,7 +1,8 @@
-#include <iostream>
-#include <string>
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
+#include <iostream>
+#include <string>
+#include <limits>
 
 int main()
 {
@@ -38,9 +39,16 @@ int main()
         else if (input == "SEARCH")
         {
             int index;
-            phone_book.display_contacts();
+            if (!(phone_book.display_contacts()))
+                continue;
             std::cout << "Enter index to view details: ";
-            std::cin >> index;
+            while (!(std::cin >> index))
+            {
+                std::cout << "Invalid input! Please enter a number." << std::endl;
+                std::cin.clear();                                                   // Clear error state
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Discard invalid input
+                std::cout << "Enter index to view details: ";
+            }
             phone_book.display(index);
         }
         else if (input == "EXIT")

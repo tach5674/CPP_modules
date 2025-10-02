@@ -49,7 +49,8 @@ void Contact::display() const
 void Contact::preview(int index) const
 {
     std::cout << "|" << std::setw(10) << index
-              << "|" << std::setw(10) << first_name
-              << "|" << std::setw(10) << last_name
-              << "|" << std::setw(10) << nickname << "|" << std::endl;
+              << "|" << std::setw(10) << (first_name.size() > 10 ? first_name.substr(0, 9) + "." : first_name)
+              << "|" << std::setw(10) << (last_name.size() > 10 ? last_name.substr(0, 9) + "." : last_name)
+              << "|" << std::setw(10) << (nickname.size() > 10 ? nickname.substr(0, 9) + "." : nickname)
+              << "|" << std::endl;
 }

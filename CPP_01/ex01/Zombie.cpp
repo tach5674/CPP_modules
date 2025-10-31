@@ -1,15 +1,15 @@
-#include "Zombie.h"
+#include "Zombie.hpp"
 
 Zombie::Zombie() {}
 
-Zombie::Zombie(std::string n) : name(n) {}
+Zombie::Zombie(std::string n) : _name(n) {}
 
-Zombie::Zombie(const Zombie &other) : name(other.name) {}
+Zombie::Zombie(const Zombie &other) : _name(other._name) {}
 
 Zombie &Zombie::operator=(const Zombie &other)
 {
     if (this != &other)
-        name = other.name;
+        _name = other._name;
     return *this;
 }
 
@@ -17,10 +17,10 @@ Zombie::~Zombie() {};
 
 void Zombie::announce()
 {
-    std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+    std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
 
 void Zombie::set_name(std::string name)
 {
-    this->name = name;
+    this->_name = name;
 }

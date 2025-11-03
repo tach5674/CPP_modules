@@ -1,15 +1,15 @@
 #include "Weapon.hpp"
 
-Weapon::Weapon() : _type("fists") {}
+Weapon::Weapon() : type_("fists") {}
 
-Weapon::Weapon(std::string t) : _type(t) {}
+Weapon::Weapon(std::string t) : type_(t) {}
 
-Weapon::Weapon(const Weapon &other) : _type(other._type) {}
+Weapon::Weapon(const Weapon &other) : type_(other.type_) {}
 
 Weapon &Weapon::operator=(const Weapon &other)
 {
     if (this != &other)
-        _type = other._type;
+        type_ = other.type_;
     return *this;
 }
 
@@ -17,10 +17,10 @@ Weapon::~Weapon() {}
 
 const std::string &Weapon::getType(void)
 {
-    return _type;
+    return type_;
 }
 
 void Weapon::setType(std::string t)
 {
-    _type = t;
+    type_ = t;
 }

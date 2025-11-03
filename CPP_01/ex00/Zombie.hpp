@@ -6,7 +6,7 @@
 class Zombie
 {
 private:
-	std::string _name;
+	std::string name_;
 
 public:
 	// Default constructor

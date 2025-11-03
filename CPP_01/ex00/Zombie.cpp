@@ -2,14 +2,14 @@
 
 Zombie::Zombie() {}
 
-Zombie::Zombie(std::string n) : _name(n) {}
+Zombie::Zombie(std::string n) : name_(n) {}
 
-Zombie::Zombie(const Zombie &other) : _name(other._name) {}
+Zombie::Zombie(const Zombie &other) : name_(other.name_) {}
 
 Zombie &Zombie::operator=(const Zombie &other)
 {
     if (this != &other)
-        _name = other._name;
+        name_ = other.name_;
     return *this;
 }
 
@@ -17,5 +17,5 @@ Zombie::~Zombie() {};
 
 void Zombie::announce()
 {
-    std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+    std::cout << name_ << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }

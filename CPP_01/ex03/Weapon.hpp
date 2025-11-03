@@ -6,7 +6,7 @@
 class Weapon
 {
 private:
-    std::string _type;
+    std::string type_;
 
 public:
     // Default constructor

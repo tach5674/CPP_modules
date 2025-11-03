@@ -8,13 +8,17 @@ class Fixed
 {
 private:
     int num_;
-    static const int fraction_;
+    static const int fraction_ = 8; // 8 fractional bits
 
 public:
     // Default constructor
     Fixed();
+    
+    // Parameterized constructer
+    Fixed(const int num);   // from int
+    Fixed(const float num); // from float
 
-    // Copy constructor
+    // opy constructor
     Fixed(const Fixed &other);
 
     // Copy assignment operator
@@ -23,8 +27,13 @@ public:
     // Destructor
     ~Fixed();
 
+    float toFloat() const;
+    int toInt() const;
+
     int getRawBits() const;
     void setRawBits(int const raw);
 };
+
+std::ostream &operator<<(std::ostream &out, const Fixed &f);
 
 #endif

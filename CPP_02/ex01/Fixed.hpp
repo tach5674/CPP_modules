@@ -8,12 +8,12 @@ class Fixed
 {
 private:
     int num_;
-    static const int fraction_ = 8; // 8 fractional bits
+    static const int fraction_;
 
 public:
     // Default constructor
     Fixed();
-    
+
     // Parameterized constructer
     Fixed(const int num);   // from int
     Fixed(const float num); // from float

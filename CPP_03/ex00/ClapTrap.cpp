@@ -1,18 +1,18 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string const &name)
+ClapTrap::ClapTrap(const std::string &name)
     : name(name), hitPoints(10), energyPoints(10), attackDamage(0)
 {
     std::cout << "Constructor called for ClapTrap " << name << std::endl;
 }
 
-ClapTrap::ClapTrap(ClapTrap const &other)
+ClapTrap::ClapTrap(const ClapTrap &other)
     : name(other.name), hitPoints(other.hitPoints), energyPoints(other.energyPoints), attackDamage(other.attackDamage)
 {
     std::cout << "Copy constructor called for ClapTrap " << name << "with ClapTrap" << other.name << std::endl;
 }
 
-ClapTrap &ClapTrap::operator=(ClapTrap const &other)
+ClapTrap &ClapTrap::operator=(const ClapTrap &other)
 {
     std::cout << "Assignment operator called for ClapTrap " << name << " with ClapTrap " << other.name << std::endl;
     if (this != &other)
@@ -30,7 +30,7 @@ ClapTrap::~ClapTrap()
     std::cout << "Destructor called for ClapTrap " << name << std::endl;
 }
 
-void ClapTrap::attack(std::string const &target)
+void ClapTrap::attack(const std::string &target)
 {
     if (energyPoints > 0 && hitPoints > 0)
     {

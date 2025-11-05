@@ -11,6 +11,6 @@ int main()
     clap1.attack("Target2");
     clap2.takeDamage(10);
     clap2.beRepaired(5);
-
+    clap1.guardGate();
     return 0;
 }

@@ -1,9 +1,9 @@
-#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main()
 {
-    FragTrap clap1("Clappy");
-    FragTrap clap2("Trapster");
+    DiamondTrap clap1("Clappy");
+    DiamondTrap clap2("Trapster");
 
     clap1.attack("Target1");
     clap2.takeDamage(5);
@@ -11,6 +11,8 @@ int main()
     clap1.attack("Target2");
     clap2.takeDamage(10);
     clap2.beRepaired(5);
+    clap1.guardGate();
     clap1.highFivesGuys();
+    clap1.whoAmI();
     return 0;
 }

@@ -1,16 +1,23 @@
 #include "DiamondTrap.hpp"
 
+DiamondTrap::DiamondTrap()
+    : ClapTrap("Unnamed_clap_name"),
+      FragTrap("Unnamed"),
+      ScavTrap("Unnamed")
+{
+    std::cout << "Default constructor called for DiamondTrap " << name_ << std::endl;
+}
 DiamondTrap::DiamondTrap(const std::string &name)
     : ClapTrap(name + "_clap_name"),
       FragTrap(name),
       ScavTrap(name)
 {
-    this->name_ = name;
-    this->hitPoints_ = FragTrap::hitPoints_;
-    this->energyPoints_ = ScavTrap::energyPoints_;
-    this->attackDamage_ = FragTrap::attackDamage_;
+    name_ = name;
+    hitPoints_ = FragTrap::hitPoints_;
+    energyPoints_ = ScavTrap::energyPoints_;
+    attackDamage_ = FragTrap::attackDamage_;
 
-    std::cout << "DiamondTrap constructor called for " << this->name_ << std::endl;
+    std::cout << "Parameterized constructor called for DiamondTrap " << name_ << std::endl;
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap &other)
@@ -18,9 +25,7 @@ DiamondTrap::DiamondTrap(const DiamondTrap &other)
       FragTrap(other),
       ScavTrap(other)
 {
-    this->name_ = other.name_;
-
-    std::cout << "DiamondTrap copy constructor called for " << this->name_ << std::endl;
+    std::cout << "Copy constructor called for DiamondTrap " << name_ << "with DiamondTrap " << other.name_ << std::endl;
 }
 
 DiamondTrap &DiamondTrap::operator=(const DiamondTrap &other)
@@ -30,15 +35,14 @@ DiamondTrap &DiamondTrap::operator=(const DiamondTrap &other)
         ClapTrap::operator=(other);
         FragTrap::operator=(other);
         ScavTrap::operator=(other);
-
-        this->name_ = other.name_;
+        name_ = other.name_;
     }
 
-    std::cout << "DiamondTrap assignment operator called for " << this->name_ << std::endl;
+    std::cout << "Assignment operator called for DiamondTrap " << name_ << " with DiamondTrap " << other.name_ << std::endl;
     return *this;
 }
 
-DiamondTrap::~DiamondTrap(){}
+DiamondTrap::~DiamondTrap() {}
 
 void DiamondTrap::attack(std::string const &target)
 {

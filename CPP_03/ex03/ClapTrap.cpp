@@ -1,15 +1,20 @@
 #include "ClapTrap.hpp"
 
+ClapTrap::ClapTrap()
+    : name_("Unnamed"), hitPoints_(10), energyPoints_(10), attackDamage_(0)
+{
+    std::cout << "Default constructor called for ClapTrap " << name_ << std::endl;
+}
 ClapTrap::ClapTrap(std::string const &name)
     : name_(name), hitPoints_(10), energyPoints_(10), attackDamage_(0)
 {
-    std::cout << "Constructor called for ClapTrap " << name_ << std::endl;
+    std::cout << "Parameterized constructor called for ClapTrap " << name_ << std::endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap const &other)
     : name_(other.name_), hitPoints_(other.hitPoints_), energyPoints_(other.energyPoints_), attackDamage_(other.attackDamage_)
 {
-    std::cout << "Copy constructor called for ClapTrap " << name_ << "with ClapTrap" << other.name_ << std::endl;
+    std::cout << "Copy constructor called for ClapTrap " << name_ << "with ClapTrap " << other.name_ << std::endl;
 }
 
 ClapTrap &ClapTrap::operator=(ClapTrap const &other)

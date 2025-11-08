@@ -13,7 +13,8 @@ private:
     unsigned int attackDamage_;
 
 public:
-    ClapTrap(const std::string &name="Unnamed");
+    ClapTrap();
+    ClapTrap(const std::string &name);
     ClapTrap(const ClapTrap &other);
     ClapTrap &operator=(const ClapTrap &other);
     ~ClapTrap();

@@ -1,9 +1,15 @@
 #include "ScavTrap.hpp"
 
+ScavTrap::ScavTrap()
+    : ClapTrap("Unnamed")
+{
+    std::cout << "Default constructor called for ScavTrap " << name_ << std::endl;
+}
+
 ScavTrap::ScavTrap(const std::string &name)
     : ClapTrap(name)
 {
-    std::cout << "Constructor called for ScavTrap " << name_ << std::endl;
+    std::cout << "Parameterized constructor called for ScavTrap " << name_ << std::endl;
     hitPoints_ = 100;
     energyPoints_ = 50;
     attackDamage_ = 20;
@@ -12,7 +18,7 @@ ScavTrap::ScavTrap(const std::string &name)
 ScavTrap::ScavTrap(const ScavTrap &other)
     : ClapTrap(other)
 {
-    std::cout << "Copy constructor called for ScavTrap " << name_ << "with ScavTrap" << other.name_ << std::endl;
+    std::cout << "Copy constructor called for ScavTrap " << name_ << "with ScavTrap " << other.name_ << std::endl;
 }
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &other)
@@ -63,7 +69,6 @@ void ScavTrap::beRepaired(unsigned int amount)
                   << " points! Current hit points: " << hitPoints_ << std::endl;
     }
 }
-
 
 void ScavTrap::guardGate()
 {

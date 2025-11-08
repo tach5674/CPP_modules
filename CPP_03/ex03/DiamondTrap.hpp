@@ -10,7 +10,8 @@ private:
     std::string name_;
 
 public:
-    DiamondTrap(const std::string &name = "Unnamed");
+    DiamondTrap();
+    DiamondTrap(const std::string &name);
     DiamondTrap(const DiamondTrap &other);
     DiamondTrap &operator=(const DiamondTrap &other);
     ~DiamondTrap();

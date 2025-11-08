@@ -1,9 +1,18 @@
 #include "FragTrap.hpp"
 
+FragTrap::FragTrap()
+    : ClapTrap("Unnamed")
+{
+    std::cout << "Default constructor called for FragTrap " << name_ << std::endl;
+    hitPoints_ = 100;
+    energyPoints_ = 50;
+    attackDamage_ = 20;
+}
+
 FragTrap::FragTrap(const std::string &name)
     : ClapTrap(name)
 {
-    std::cout << "Constructor called for FragTrap " << name_ << std::endl;
+    std::cout << "Parameterized constructor called for FragTrap " << name_ << std::endl;
     hitPoints_ = 100;
     energyPoints_ = 50;
     attackDamage_ = 20;
@@ -12,7 +21,7 @@ FragTrap::FragTrap(const std::string &name)
 FragTrap::FragTrap(const FragTrap &other)
     : ClapTrap(other)
 {
-    std::cout << "Copy constructor called for FragTrap " << name_ << "with FragTrap" << other.name_ << std::endl;
+    std::cout << "Copy constructor called for FragTrap " << name_ << "with FragTrap " << other.name_ << std::endl;
 }
 
 FragTrap &FragTrap::operator=(const FragTrap &other)

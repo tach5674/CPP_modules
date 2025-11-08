@@ -1,9 +1,9 @@
 CXX := c++
 CXXFLAGS := -Wall -Wextra -Werror -std=c++98 -I.
 
-SRCS := main.cpp AMateria.cpp Cure.cpp Ice.cpp Character.cpp
+SRCS := main.cpp AMateria.cpp Cure.cpp Ice.cpp Character.cpp MateriaSource.cpp
 OBJS := $(SRCS:.cpp=.o)
-HEADERS := AMateria.hpp ICharacter.hpp Cure.hpp Ice.hpp Charcter.hpp
+HEADERS := IMateriaSource.hpp ICharacter.hpp AMateria.hpp Cure.hpp Ice.hpp Charcter.hpp
 TARGET := program 
 
 all: $(TARGET)

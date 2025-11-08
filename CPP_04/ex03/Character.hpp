@@ -7,8 +7,10 @@ class Character : public ICharacter
 {
 private:
     std::string name_;
-    static const size_t size_ = 4;
-    AMateria *slots_[4];
+    static const size_t slots_size_ = 4;
+    static const size_t floor_size_ = 10;
+    AMateria *slots_[slots_size_];
+    AMateria *floor_[floor_size_];
 
 public:
     Character();

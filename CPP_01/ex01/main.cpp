@@ -11,9 +11,10 @@ int main()
     z1.announce();
     
     Zombie *horde = zombieHorde(N, "Dzuk");
-    for (int i = 0; i < N; i++)
+    if (horde)
     {
-        horde[i].announce();
+        for (int i = 0; i < N; i++)
+            horde[i].announce();
     }
     delete[] horde;
 }

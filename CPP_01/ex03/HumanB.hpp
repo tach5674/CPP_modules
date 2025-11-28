@@ -8,7 +8,7 @@ class HumanB
 {
 private:
     std::string name_;
-    Weapon *_weapon;
+    Weapon *weapon_;
 
 public:
     // Default constructor

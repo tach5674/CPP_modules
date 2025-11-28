@@ -9,10 +9,13 @@ int main()
     std::string input;
     std::string first_name, last_name, nickname, phone_number, darkest_secret;
     PhoneBook phone_book;
+    int index;
+
     while (true)
     {
         std::cout << "Enter a command (ADD, SEARCH, EXIT): ";
-        std::getline(std::cin, input);
+        if (!std::getline(std::cin, input))
+            break;
         if (input == "ADD")
         {
             std::getline(std::cin, first_name);
@@ -38,17 +41,19 @@ int main()
         }
         else if (input == "SEARCH")
         {
-            int index;
             if (!(phone_book.display_contacts()))
                 continue;
             std::cout << "Enter index to view details: ";
             while (!(std::cin >> index))
-            {
-                std::cout << "Invalid input! Please enter a number." << std::endl;
+            {:
+                if (std::cin.eof())
+                    return 0;
                 std::cin.clear();                                                   // Clear error state
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Discard invalid input
-                std::cout << "Enter index to view details: ";
+                std::cout << "Invalid input! Please enter a number." << std::endl
+                          << "Enter index to view details: ";
             }
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Discard invalid input
             phone_book.display(index);
         }
         else if (input == "EXIT")

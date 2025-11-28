@@ -45,7 +45,7 @@ int main()
                 continue;
             std::cout << "Enter index to view details: ";
             while (!(std::cin >> index))
-            {:
+            {
                 if (std::cin.eof())
                     return 0;
                 std::cin.clear();                                                   // Clear error state

@@ -11,17 +11,8 @@ private:
     Weapon *weapon_;
 
 public:
-    // Default constructor
-    HumanB();
-
     // Parameterized constructer
     HumanB(std::string n);
-
-    // Copy constructor
-    HumanB(const HumanB &other);
-
-    // Copy assignment operator
-    HumanB &operator=(const HumanB &other);
 
     // Destructor
     ~HumanB();

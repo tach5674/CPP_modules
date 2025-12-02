@@ -3,7 +3,7 @@
 
 Form::Form() : name_("Blank"), signed_(false), sign_grade_(150), execute_grade_(150) {}
 
-Form::Form(std::string n, int sg, int eg) : name_(n), signed_(false), sign_grade_(sg), execute_grade_(eg)
+Form::Form(const std::string &n, const int &sg, const int &eg) : name_(n), signed_(false), sign_grade_(sg), execute_grade_(eg)
 {
     if (sign_grade_ < 1 || execute_grade_ < 1)
         throw Form::GradeTooHighException();

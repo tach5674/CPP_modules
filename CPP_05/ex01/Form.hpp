@@ -29,7 +29,7 @@ public:
     };
 
     Form();
-    Form(std::string n, int sg, int eg);
+    Form(const std::string &n, const int &sg, const int &eg);
     Form(const Form &other);
     Form &operator=(const Form &other);
     ~Form();

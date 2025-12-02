@@ -27,7 +27,7 @@ public:
     };
 
     Bureaucrat();
-    Bureaucrat(std::string n, int g);
+    Bureaucrat(const std::string &n, int g);
     Bureaucrat(const Bureaucrat &other);
     Bureaucrat &operator=(const Bureaucrat &other);
     ~Bureaucrat();

@@ -27,7 +27,7 @@ public:
     };
 
     Bureaucrat();
-    Bureaucrat(std::string n, int g);
+    Bureaucrat(const std::string &n, int g);
     Bureaucrat(const Bureaucrat &other);
     Bureaucrat &operator=(const Bureaucrat &other);
     ~Bureaucrat();
@@ -36,7 +36,9 @@ public:
     int getGrade() const;
     void incGrade();
     void decGrade();
+
     void signForm(AForm &form) const;
+    void executeForm(AForm const & form) const;
 };
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &b);

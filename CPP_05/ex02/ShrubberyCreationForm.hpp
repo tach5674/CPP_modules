@@ -11,10 +11,12 @@ private:
 
 public:
     ShrubberyCreationForm();
-    ShrubberyCreationForm(std::string n);
+    ShrubberyCreationForm(const std::string &t);
     ShrubberyCreationForm(const ShrubberyCreationForm &other);
     ShrubberyCreationForm &operator=(const ShrubberyCreationForm &other);
     ~ShrubberyCreationForm();
+
+    void execute() const;
 };
 
 #endif

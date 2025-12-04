@@ -3,21 +3,26 @@
 DiamondTrap::DiamondTrap()
     : ClapTrap("Unnamed_clap_name"),
       FragTrap("Unnamed"),
-      ScavTrap("Unnamed")
+      ScavTrap("Unnamed"),
+      name_("Unnamed")
 {
     std::cout << "Default constructor called for DiamondTrap " << name_ << std::endl;
+
+    hitPoints_ = FragTrap::hitPoints_;
+    energyPoints_ = ScavTrap::energyPoints_;
+    attackDamage_ = FragTrap::attackDamage_;
 }
 DiamondTrap::DiamondTrap(const std::string &name)
     : ClapTrap(name + "_clap_name"),
       FragTrap(name),
-      ScavTrap(name)
+      ScavTrap(name),
+      name_(name)
 {
-    name_ = name;
+    std::cout << "Parameterized constructor called for DiamondTrap " << name_ << std::endl;
+
     hitPoints_ = FragTrap::hitPoints_;
     energyPoints_ = ScavTrap::energyPoints_;
     attackDamage_ = FragTrap::attackDamage_;
-
-    std::cout << "Parameterized constructor called for DiamondTrap " << name_ << std::endl;
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap &other)
@@ -30,6 +35,8 @@ DiamondTrap::DiamondTrap(const DiamondTrap &other)
 
 DiamondTrap &DiamondTrap::operator=(const DiamondTrap &other)
 {
+    std::cout << "Assignment operator called for DiamondTrap " << name_ << " with DiamondTrap " << other.name_ << std::endl;
+
     if (this != &other)
     {
         ClapTrap::operator=(other);
@@ -37,8 +44,6 @@ DiamondTrap &DiamondTrap::operator=(const DiamondTrap &other)
         ScavTrap::operator=(other);
         name_ = other.name_;
     }
-
-    std::cout << "Assignment operator called for DiamondTrap " << name_ << " with DiamondTrap " << other.name_ << std::endl;
     return *this;
 }
 
@@ -46,12 +51,7 @@ DiamondTrap::~DiamondTrap() {}
 
 void DiamondTrap::attack(std::string const &target)
 {
-    if (energyPoints_ > 0 && hitPoints_ > 0)
-    {
-        energyPoints_--;
-        std::cout << "DiamondTrap " << name_ << " attacks " << target
-                  << ", causing " << attackDamage_ << " points of damage!" << std::endl;
-    }
+    ScavTrap::attack(target);
 }
 
 void DiamondTrap::takeDamage(unsigned int amount)

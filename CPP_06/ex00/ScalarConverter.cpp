@@ -41,8 +41,9 @@ static bool int_check(const std::string &str)
 
 static bool float_check(const std::string &str)
 {
-
     if (str.find('f') == std::string::npos)
+        return false;
+    if (str == "inf" || str == "-inf")
         return false;
 
     const char *cstr = str.c_str();
@@ -157,7 +158,6 @@ void ScalarConverter::convert(const std::string &str)
         std::cout << "double: " << static_cast<double>(i) << std::endl;
         break;
     case TYPE_FLOAT:
-
         f = std::strtod((str.substr(0, str.length() - 1)).c_str(), &end);
 
         // Char
@@ -212,7 +212,7 @@ void ScalarConverter::convert(const std::string &str)
 
         // Float
         std::cout << "float: ";
-        if (d < -std::numeric_limits<float>::max() || d > std::numeric_limits<float>::max())
+        if (!std::isinf(d) && (d < -std::numeric_limits<float>::max() || d > std::numeric_limits<float>::max()))
             std::cout << "impossible";
         else
             std::cout << static_cast<float>(d) << "f";

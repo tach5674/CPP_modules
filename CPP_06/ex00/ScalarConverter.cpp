@@ -134,7 +134,10 @@ void ScalarConverter::convert(const std::string &str)
         std::cout << "double: " << static_cast<double>(c) << std::endl;
         break;
     case TYPE_INT:
+
         i = std::strtol(str.c_str(), &end, 10);
+
+        // Char
         std::cout << "char: ";
         if (i < 0 || i > 127)
             std::cout << "impossible";
@@ -143,12 +146,21 @@ void ScalarConverter::convert(const std::string &str)
         else
             std::cout << "'" << static_cast<char>(i) << "'";
         std::cout << std::endl;
+
+        // Int
         std::cout << "int: " << i << std::endl;
+
+        // Float
         std::cout << "float: " << static_cast<float>(i) << "f" << std::endl;
+
+        // Double
         std::cout << "double: " << static_cast<double>(i) << std::endl;
         break;
     case TYPE_FLOAT:
+
         f = std::strtod((str.substr(0, str.length() - 1)).c_str(), &end);
+
+        // Char
         std::cout << "char: ";
         if (std::isnan(f) || std::isinf(f) || f < 0 || f > 127)
             std::cout << "impossible";
@@ -157,6 +169,8 @@ void ScalarConverter::convert(const std::string &str)
         else
             std::cout << "'" << static_cast<char>(f) << "'";
         std::cout << std::endl;
+
+        // Int
         std::cout << "int: ";
         if (std::isnan(f) || std::isinf(f) ||
             f < std::numeric_limits<int>::min() ||
@@ -165,11 +179,18 @@ void ScalarConverter::convert(const std::string &str)
         else
             std::cout << static_cast<int>(f);
         std::cout << std::endl;
+
+        // Float
         std::cout << "float: " << f << "f" << std::endl;
+
+        // Double
         std::cout << "double: " << static_cast<double>(f) << std::endl;
         break;
     case TYPE_DOUBLE:
+
         d = std::strtod(str.c_str(), &end);
+
+        // Char
         std::cout << "char: ";
         if (std::isnan(d) || std::isinf(d) || d < 0 || d > 127)
             std::cout << "impossible";
@@ -178,6 +199,8 @@ void ScalarConverter::convert(const std::string &str)
         else
             std::cout << "'" << static_cast<char>(d) << "'";
         std::cout << std::endl;
+
+        // Int
         std::cout << "int: ";
         if (std::isnan(d) || std::isinf(d) ||
             d < std::numeric_limits<int>::min() ||
@@ -186,13 +209,18 @@ void ScalarConverter::convert(const std::string &str)
         else
             std::cout << static_cast<int>(d);
         std::cout << std::endl;
+
+        // Float
         std::cout << "float: ";
         if (d < -std::numeric_limits<float>::max() || d > std::numeric_limits<float>::max())
             std::cout << "impossible";
         else
             std::cout << static_cast<float>(d) << "f";
         std::cout << std::endl;
+
+        // Double
         std::cout << "double: " << d << std::endl;
+
         break;
     default:
         std::cout << "char: " << "impossible" << std::endl;

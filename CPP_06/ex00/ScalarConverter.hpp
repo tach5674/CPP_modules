@@ -3,10 +3,8 @@
 
 #include <iostream>
 #include <string>
-#include <climits>
 #include <limits>
 #include <cctype>
-#include <cfloat>
 #include <cstdlib>
 #include <cerrno>
 #include <cmath>

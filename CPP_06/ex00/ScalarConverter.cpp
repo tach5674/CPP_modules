@@ -6,7 +6,6 @@ enum LiteralType
     TYPE_INT,
     TYPE_FLOAT,
     TYPE_DOUBLE,
-    TYPE_SPECIAL,
     TYPE_INVALID
 };
 

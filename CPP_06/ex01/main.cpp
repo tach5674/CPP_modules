@@ -15,5 +15,6 @@ int main()
     std::cout << "Address of b: " << b << std::endl;
     std::cout << "Value in a: " << a->i << std::endl;
 
+    delete a;
     return 0;
 }

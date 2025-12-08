@@ -10,7 +10,6 @@
 #include <cmath>
 #include <iomanip>
 
-
 class ScalarConverter
 {
 private:

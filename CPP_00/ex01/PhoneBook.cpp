@@ -47,7 +47,8 @@ bool PhoneBook::display_contacts() const
 
 void PhoneBook::display(int index) const
 {
-    if (index < 0 || index >= 8 || index >= contact_count % 8)
+    std::cout << index << std::endl;
+    if (index < 0 || index >= 8 || index >= contact_count)
     {
         std::cout << "Invalid index!" << std::endl;
         return;

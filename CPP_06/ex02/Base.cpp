@@ -11,7 +11,6 @@ Base::~Base() {}
 
 Base *generate(void)
 {
-    std::srand(std::time(NULL));
     switch (std::rand() % 3)
     {
     case 0:

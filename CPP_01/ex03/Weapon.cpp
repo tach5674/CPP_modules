@@ -1,6 +1,6 @@
 #include "Weapon.hpp"
 
-Weapon::Weapon() : type_("fists") {}
+Weapon::Weapon() : type_("stick") {}
 
 Weapon::Weapon(std::string t) : type_(t) {}
 

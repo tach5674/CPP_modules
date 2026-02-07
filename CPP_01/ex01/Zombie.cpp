@@ -13,7 +13,10 @@ Zombie &Zombie::operator=(const Zombie &other)
     return *this;
 }
 
-Zombie::~Zombie() {};
+Zombie::~Zombie()
+{
+    std::cout << "Destructor called for " << name_ << std::endl;
+};
 
 void Zombie::announce()
 {

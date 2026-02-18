@@ -8,11 +8,7 @@ Point::Point(const Point &other) : x(other.x), y(other.y) {}
 
 Point &Point::operator=(const Point &other)
 {
-    if (this != &other)
-    {
-        this->x = other.x;
-        this->y = other.y;
-    }
+    (void)other;
     return *this;
 }
 

@@ -12,7 +12,7 @@ ClapTrap::ClapTrap(std::string const &name)
 }
 
 ClapTrap::ClapTrap(ClapTrap const &other)
-    : name_(other.name_), hitPoints_(other.hitPoints_), energyPoints_(other.energyPoints_), attackDamage_(other.attackDamage_)
+    : ClapTrap(other)
 {
     std::cout << "Copy constructor called for ClapTrap " << name_ << "with ClapTrap " << other.name_ << std::endl;
 }
@@ -21,12 +21,7 @@ ClapTrap &ClapTrap::operator=(ClapTrap const &other)
 {
     std::cout << "Assignment operator called for ClapTrap " << name_ << " with ClapTrap " << other.name_ << std::endl;
     if (this != &other)
-    {
-        name_ = other.name_;
-        hitPoints_ = other.hitPoints_;
-        energyPoints_ = other.energyPoints_;
-        attackDamage_ = other.attackDamage_;
-    }
+        ClapTrap::operator=(other);
     return *this;
 }
 

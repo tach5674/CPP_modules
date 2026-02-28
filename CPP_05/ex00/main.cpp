@@ -8,7 +8,7 @@ int main()
     {
         try
         {
-            b.incGrade();
+            b.decGrade();
         }
         catch(std::exception &e)
         {

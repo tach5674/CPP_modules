@@ -45,16 +45,16 @@ int Bureaucrat::getGrade() const
 
 void Bureaucrat::incGrade()
 {
-    if (grade_ == 150)
+    if (grade_ == 1)
         throw Bureaucrat::GradeTooHighException();
-    this->grade_++;
+    this->grade_--;
 }
 
 void Bureaucrat::decGrade()
 {
-    if (grade_ == 1)
+    if (grade_ == 150)
         throw Bureaucrat::GradeTooLowException();
-    this->grade_--;
+    this->grade_++;
 }
 
 void Bureaucrat::signForm(Form &form) const

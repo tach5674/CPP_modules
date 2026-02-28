@@ -9,8 +9,8 @@ int main()
     Bureaucrat b = Bureaucrat("Robert", 1);
     Intern i = Intern();
     AForm *s = i.makeForm("shrubbery creation", "home");
-    AForm *r = new RobotomyRequestForm("home");
-    AForm *p = new PresidentialPardonForm("Gago");
+    AForm *r = i.makeForm("robotomy request", "home");
+    AForm *p = i.makeForm("presidential pardon", "home");
     std::cout << b << std::endl;
     std::cout << *s << std::endl;
     std::cout << *r << std::endl;

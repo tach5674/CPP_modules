@@ -38,7 +38,7 @@ AForm *Intern::makeForm(const std::string &name, const std::string &target)
     const std::string names[3] = {
         "shrubbery creation",
         "robotomy request",
-        "presidental pardon",
+        "presidential pardon",
     };
 
     AForm *(*funcs[3])(const std::string &) = {

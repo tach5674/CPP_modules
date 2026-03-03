@@ -10,4 +10,16 @@ void iter(A *arr, const size_t len, F func)
         func(arr[i]);
 }
 
+template<typename T>
+void sqr(T &val)
+{
+    val = val * val;
+}
+
+template<typename T>
+void prt(const T &val)
+{
+    std::cout << val << std::endl;
+}
+
 #endif

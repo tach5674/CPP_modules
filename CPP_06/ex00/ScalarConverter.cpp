@@ -18,14 +18,15 @@ static bool char_check(const std::string &str)
 
 static bool int_check(const std::string &str)
 {
+    const char *cstr = str.c_str();
     errno = 0;
     char *end;
-    long val = strtol(str.c_str(), &end, 10);
+    long val = strtol(cstr, &end, 10);
 
     if (errno == ERANGE)
         return false;
 
-    if (end == str.c_str())
+    if (end == cstr)
         return false;
 
     while (*end)
@@ -128,7 +129,7 @@ void ScalarConverter::convert(const std::string &str)
     {
     case TYPE_CHAR:
         c = static_cast<char>(str[0]);
-        std::cout << "char: " << c << std::endl;
+        std::cout << "char: " << "'" << c << "'" << std::endl;
         std::cout << "int: " << static_cast<int>(c) << std::endl;
         std::cout << "float: " << static_cast<float>(c) << "f" << std::endl;
         std::cout << "double: " << static_cast<double>(c) << std::endl;

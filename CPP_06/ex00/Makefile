@@ -4,7 +4,7 @@ CXXFLAGS := -Wall -Wextra -Werror -std=c++98 -I.
 SRCS := main.cpp ScalarConverter.cpp
 OBJS := $(SRCS:.cpp=.o)
 HEADERS := ScalarConverter.hpp
-TARGET := program 
+TARGET := convert 
 
 all: $(TARGET)
 

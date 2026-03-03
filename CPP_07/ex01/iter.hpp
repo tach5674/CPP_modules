@@ -19,7 +19,7 @@ void sqr(T &val)
 template<typename T>
 void prt(const T &val)
 {
-    std::cout << val << std::endl;
+    std::cout << val << '\n';
 }
 
 #endif

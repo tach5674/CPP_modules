@@ -8,9 +8,7 @@ int main(void)
     iter(arr, 5, sqr<int>);
     std::cout << "---------------\n";
     for (size_t i = 0; i < 5; i++)
-    {
-        std::cout << arr[i] << std::endl;
-    }
+        std::cout << arr[i] << '\n';
     
     return 0;
 }

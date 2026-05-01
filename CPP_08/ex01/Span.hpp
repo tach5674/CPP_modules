@@ -20,5 +20,4 @@ public:
     int longestSpan() const;
 
     void fillSpan(const int n);
-    void printNumbers() const;
 };

@@ -7,14 +7,12 @@
 int main()
 {
     std::srand(std::time(NULL));
-    unsigned int n = 10;
+    unsigned int n = 5;
 
     Span s = Span(n);
-    for (unsigned int i = 0; i < 5; i++)
-        s.addNumber(std::rand() % 100);
-    s.printNumbers();
+    for (unsigned int i = 0; i < 2; i++)
+        s.addNumber(std::rand() % 1000);
     s.fillSpan(3);
-    s.printNumbers();
     std::cout << "Shortes span - " << s.shortestSpan() << std::endl;
     std::cout << "Longest span - " << s.longestSpan() << std::endl;
     return 0;

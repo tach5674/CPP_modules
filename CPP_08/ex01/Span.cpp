@@ -35,20 +35,6 @@ void Span::addNumber(int num)
     this->numbers.push_back(num);
 }
 
-void Span::printNumbers() const
-{
-    if (numbers.empty())
-        return;
-    std::cout << "Numbers - ";
-    for (unsigned int i = 0; i < numbers.size(); i++)
-    {
-        std::cout << numbers[i];
-        if (i != numbers.size() - 1)
-            std::cout << ", ";
-    }
-    std::cout << std::endl;
-}
-
 int Span::shortestSpan() const
 {
     if (numbers.size() < 2)
@@ -56,10 +42,10 @@ int Span::shortestSpan() const
 
     std::vector<int> copy = numbers;
     std::sort(copy.begin(), copy.end());
-    int res = copy[1] - copy[0];
-    for (size_t i = 1; i < copy.size() - 1; i++)
-        res = std::min(copy[i + 1] - copy[i], res);
-    return res;
+    int res = numbers[1] - numbers[0];
+    for (size_t i = 1; i < numbers.size() - 1; i++)
+        res = std::min(numbers[i + 1] - numbers[i], res);
+    return 0;
 }
 
 int Span::longestSpan() const

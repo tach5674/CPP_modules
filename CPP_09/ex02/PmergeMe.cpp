@@ -5,6 +5,8 @@
 #include <iostream>
 #include <cstdlib>
 
+const double PmergeMe::timeScale = 1000000; // Scale to microseconds
+
 PmergeMe::PmergeMe() {}
 
 PmergeMe::PmergeMe(const PmergeMe &other) : v(other.v), d(other.d) {}
@@ -20,6 +22,11 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &other)
 }
 
 PmergeMe::~PmergeMe() {}
+
+size_t PmergeMe::getSize()
+{
+    return v.size();
+}
 
 bool PmergeMe::isValidNumber(const char *s, int &number)
 {
@@ -57,8 +64,9 @@ void PmergeMe::prepareData(const char **argv)
     }
 }
 
-void PmergeMe::printVector() const
+void PmergeMe::printVector(const std::string &label) const
 {
+    std::cout << label << ": ";
     for (size_t i = 0; i < v.size(); ++i)
     {
         std::cout << v[i] << " ";
@@ -87,7 +95,7 @@ static void fordJohnsonVector(std::vector<int> &v)
     }
 
     bool hasOdd = (v.size() % 2 != 0);
-    int odd = v.size() % 2 ? v.back() : 0;
+    int odd = hasOdd ? v.back() : 0;
 
     fordJohnsonVector(mainChain);
 
@@ -143,7 +151,7 @@ static void fordJohnsonDeque(std::deque<int> &d)
     }
 
     bool hasOdd = (d.size() % 2 != 0);
-    int odd = d.size() % 2 ? d.back() : 0;
+    int odd = hasOdd ? d.back() : 0;
 
     fordJohnsonDeque(mainChain);
 
@@ -184,16 +192,18 @@ static void fordJohnsonDeque(std::deque<int> &d)
     d = mainChain;
 }
 
-void PmergeMe::sortVector()
+std::clock_t PmergeMe::sortVector()
 {
-    printVector();
+    std::clock_t start = std::clock();
     fordJohnsonVector(v);
-    printVector();
+    std::clock_t end = std::clock();
+    return (end - start) * timeScale / CLOCKS_PER_SEC;
 }
 
-void PmergeMe::sortDeque()
+std::clock_t PmergeMe::sortDeque()
 {
-    printVector();
-    fordJohnsonVector(v);
-    printVector();
+    std::clock_t start = std::clock();
+    fordJohnsonDeque(d);
+    std::clock_t end = std::clock();
+    return (end - start) * timeScale / CLOCKS_PER_SEC;
 }

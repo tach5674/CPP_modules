@@ -3,12 +3,16 @@
 #include <vector>
 #include <deque>
 #include <cstdlib>
+#include <string>
+#include <ctime>
 
 class PmergeMe
 {
 private:
     std::vector<int> v;
     std::deque<int> d;
+    static const double timeScale;
+
     bool isValidNumber(const char *s, int &number);
 
 public:
@@ -18,9 +22,10 @@ public:
     ~PmergeMe();
 
     void prepareData(const char **argv);
-    void sortVector();
-    void sortDeque();
-    void printVector() const;
+    std::clock_t sortVector();
+    std::clock_t sortDeque();
+    void printVector(const std::string &label) const;
+    size_t getSize();
 };
 
 template <typename T>

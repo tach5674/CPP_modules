@@ -4,9 +4,7 @@
 #include <sstream>
 #include <iostream>
 #include <cstdlib>
-#include <cctype>
-#include <iomanip>
-#include <limits>
+#include <cmath>
 
 static std::string trim(const std::string &s)
 {
@@ -131,14 +129,14 @@ bool BitcoinExchange::isValidDate(const std::string &date) const
     return true;
 }
 
-bool BitcoinExchange::isValidValue(const double value) const
+bool BitcoinExchange::isValueInRange(const double value) const
 {
-    if (value < 0)
+    if (value <= 0)
     {
         std::cerr << "Error: not a positive number.\n";
         return false;
     }
-    if (value > 1000)
+    if (value >= 1000)
     {
         std::cerr << "Error: too large a number.\n";
         return false;
@@ -173,15 +171,30 @@ void BitcoinExchange::processInputFile(const std::string &filename) const
             continue;
 
         value = trim(value);
-        double val;
-        ss.str(value);
-        ss.clear();
-        if (!(ss >> val) || !ss.eof())
+        char *end;
+        errno = 0;
+
+        double val = std::strtod(value.c_str(), &end);
+
+        if (*end != '\0')
         {
-            std::cerr << "Error: not a number." << std::endl;
+            std::cerr << "Error: not a number.\n";
             continue;
         }
-        if (!isValidValue(val))
+
+        if (errno == ERANGE)
+        {
+            std::cerr << "Error: number out of range.\n";
+            continue;
+        }
+
+        if (!std::isfinite(val))
+        {
+            std::cerr << "Error: invalid number.\n";
+            continue;
+        }
+
+        if (!isValueInRange(val))
             continue;
 
         std::map<std::string, double>::const_iterator it = rates.lower_bound(date);
@@ -197,14 +210,5 @@ void BitcoinExchange::processInputFile(const std::string &filename) const
             --it;
         }
         std::cout << date << " => " << val << " = " << val * it->second << std::endl;
-    }
-}
-
-void BitcoinExchange::print() const
-{
-    std::map<std::string, double>::const_iterator it;
-    for (it = rates.begin(); it != rates.end(); ++it)
-    {
-        std::cout << "Key: " << it->first << ", Value: " << it->second << std::endl;
     }
 }

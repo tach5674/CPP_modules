@@ -11,7 +11,7 @@ private:
     bool isLeapYear(int year) const;
     int daysInMonth(int year, int month) const;
     bool isValidDate(const std::string &date) const;
-    bool isValidValue(const double value) const;
+    bool isValueInRange(const double value) const;
 
 public:
     BitcoinExchange();
@@ -20,6 +20,5 @@ public:
     ~BitcoinExchange();
 
     bool loadDatabase(const std::string &filename);
-    void print() const;
     void processInputFile(const std::string &filename) const;
 };

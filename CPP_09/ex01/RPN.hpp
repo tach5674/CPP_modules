@@ -7,6 +7,8 @@ class RPN
 {
 private:
     std::stack<int> stack;
+    
+    void applyOperator(char op);
 
 public:
     RPN();
@@ -15,5 +17,4 @@ public:
     ~RPN();
 
     int evaluate(const std::string &expr);
-    void applyOperator(char op);
 };
